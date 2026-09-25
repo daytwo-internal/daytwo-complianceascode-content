@@ -1,0 +1,30 @@
+documentation_complete: true
+
+title: 'Habilitar y arrancar el agente EDR corporativo (Condor EDR)'
+
+description: |-
+    El servicio <tt>condor-edr</tt> debe estar habilitado y activo.
+    {{{ describe_service_enable(service="condor-edr") }}}
+
+rationale: |-
+    El EDR solo protege si su servicio esta corriendo. Un agente instalado
+    pero detenido no aporta deteccion.
+
+severity: high
+
+requires:
+    - package_condor_edr_installed
+
+ocil_clause: 'el servicio condor-edr no esta activo'
+
+ocil: |-
+    {{{ ocil_service_enabled(service="condor-edr") }}}
+
+fixtext: |-
+    {{{ fixtext_service_enabled("condor-edr") }}}
+
+template:
+    name: service_enabled
+    vars:
+        servicename: condor-edr
+        packagename: condor-edr

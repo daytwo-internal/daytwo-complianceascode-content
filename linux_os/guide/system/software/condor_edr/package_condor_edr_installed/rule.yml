@@ -1,0 +1,23 @@
+documentation_complete: true
+
+title: 'Instalar el agente EDR corporativo (Condor EDR)'
+
+description: |-
+    El agente <tt>condor-edr</tt> debe estar instalado en todos los hosts.
+    {{{ describe_package_install(package="condor-edr") }}}
+
+rationale: |-
+    Control interno del banco: todos los endpoints deben ejecutar el agente
+    EDR corporativo, mas alla de lo que exija CIS. Se instala desde el repo
+    interno de Satellite, sin salida a internet.
+
+severity: high
+
+{{{ complete_ocil_entry_package_installed("condor-edr") }}}
+
+fixtext: '{{{ fixtext_package_installed("condor-edr") }}}'
+
+template:
+    name: package_installed
+    vars:
+        pkgname: condor-edr

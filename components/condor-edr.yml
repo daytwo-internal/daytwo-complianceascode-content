@@ -1,0 +1,6 @@
+name: condor-edr
+packages:
+- condor-edr
+rules:
+- package_condor_edr_installed
+- service_condor_edr_enabled

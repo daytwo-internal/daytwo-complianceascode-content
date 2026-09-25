@@ -1,0 +1,8 @@
+documentation_complete: true
+
+title: 'Agente EDR corporativo (Condor EDR)'
+
+description: |-
+    Controles internos del banco para el agente de deteccion y respuesta en
+    endpoints (Condor EDR). No provienen de un benchmark externo: son politica
+    propia de la organizacion.
