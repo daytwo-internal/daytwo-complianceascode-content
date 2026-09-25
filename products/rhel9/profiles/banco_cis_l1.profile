@@ -19,3 +19,7 @@ selections:
     - sysctl_kernel_dmesg_restrict
     - sysctl_kernel_kptr_restrict
     - disable_users_coredumps
+    # Banner legal en MOTD (control tipico de banca)
+    - banner_etc_motd
+    - motd_banner_text=cis_default
+    - motd_banner_contents=cis_default
