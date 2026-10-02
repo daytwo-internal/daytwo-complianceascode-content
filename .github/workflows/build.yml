@@ -1,0 +1,30 @@
+name: build-datastreams
+
+# Solo en el branch de DayTwo (main/master = upstream, sin cambios propios).
+on:
+  push:
+    branches: [daytwo-demo]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: fedora:41
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dependencias de build
+        run: |
+          dnf -y install cmake ninja-build make git-core openscap-utils \
+            openscap-scanner python3-pyyaml python3-jinja2 python3-setuptools python3-lxml
+
+      - name: Build de los datastreams (RHEL 8 y 9)
+        run: ./build_product rhel8 rhel9
+
+      - name: Publicar los datastreams
+        uses: actions/upload-artifact@v4
+        with:
+          name: datastreams
+          path: |
+            build/ssg-rhel8-ds.xml
+            build/ssg-rhel9-ds.xml
